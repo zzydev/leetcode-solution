@@ -12,7 +12,7 @@
   "scripts": {
     "tsc": "tsc",
     "test": "vitest run",
-    "eslint": "eslint -c eslint.config.ts --fix --ext '**/src/*.{js,ts}'"
+    "eslint:linkedlist": "eslint -c eslint.config.ts --fix --cache --ext ./src/problems/LinkedList/*.{js,ts}"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.13.2",
