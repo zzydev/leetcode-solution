@@ -33,4 +33,13 @@ export class ListNode {
 
     return arr;
   }
+
+  static connect(list: ListNode | null, tail: ListNode | null): void {
+    if (!list) return;
+    let current = list;
+    while (current.next) {
+      current = current.next;
+    }
+    current.next = tail;
+  }
 }
