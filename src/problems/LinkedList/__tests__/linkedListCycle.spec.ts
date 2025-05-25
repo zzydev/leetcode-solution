@@ -1,24 +1,24 @@
-import {hasCycle} from '@/problems/LinkedList/linkedListCycle'
-import { describe, it, expect } from "vitest";
-import { ListNode } from "@/utils/ListNode";
+import { describe, expect, it } from 'vitest';
+import { hasCycle } from '@/problems/LinkedList/linkedListCycle';
+import { ListNode } from '@/utils/ListNode';
 
-describe("hasCycle", () => {
-  it("should return false for empty list", () => {
+describe('hasCycle', () => {
+  it('should return false for empty list', () => {
     expect(hasCycle(null)).toBe(false);
   });
 
-  it("should return false for single node without cycle", () => {
+  it('should return false for single node without cycle', () => {
     const list = ListNode.fromArray([1]);
     expect(hasCycle(list)).toBe(false);
   });
 
-  it("should detect single node cycle", () => {
+  it('should detect single node cycle', () => {
     const list = new ListNode(1);
     list.next = list; // Create cycle
     expect(hasCycle(list)).toBe(true);
   });
 
-  it("should detect small cycle", () => {
+  it('should detect small cycle', () => {
     const node1 = new ListNode(1);
     const node2 = new ListNode(2);
     node1.next = node2;
@@ -26,12 +26,12 @@ describe("hasCycle", () => {
     expect(hasCycle(node1)).toBe(true);
   });
 
-  it("should return false for linear list", () => {
+  it('should return false for linear list', () => {
     const list = ListNode.fromArray([1, 2, 3, 4, 5]);
     expect(hasCycle(list)).toBe(false);
   });
 
-  it("should detect tail cycle", () => {
+  it('should detect tail cycle', () => {
     const list = ListNode.fromArray([1, 2, 3, 4, 5]);
     // Make last node point to head
     let last = list;
@@ -40,7 +40,7 @@ describe("hasCycle", () => {
     expect(hasCycle(list)).toBe(true);
   });
 
-  it("should detect middle cycle", () => {
+  it('should detect middle cycle', () => {
     const list = ListNode.fromArray([1, 2, 3, 4, 5]);
     // Make node 3 point to node 2
     const node2 = list!.next;
@@ -49,8 +49,8 @@ describe("hasCycle", () => {
     expect(hasCycle(list)).toBe(true);
   });
 
-  it("should handle large cycle", () => {
-    const nodes = [...Array(1000).keys()].map(val => new ListNode(val));
+  it('should handle large cycle', () => {
+    const nodes = [...Array.from({ length: 1000 }).keys()].map(val => new ListNode(val));
     // Link all nodes linearly
     for (let i = 0; i < nodes.length - 1; i++) {
       nodes[i].next = nodes[i + 1];
@@ -60,12 +60,12 @@ describe("hasCycle", () => {
     expect(hasCycle(nodes[0])).toBe(true);
   });
 
-  it("should handle large non-cycle list", () => {
-    const list = ListNode.fromArray([...Array(1000).keys()]);
+  it('should handle large non-cycle list', () => {
+    const list = ListNode.fromArray([...Array.from({ length: 1000 }).keys()]);
     expect(hasCycle(list)).toBe(false);
   });
 
-  it("should detect cycle in two-node list", () => {
+  it('should detect cycle in two-node list', () => {
     const node1 = new ListNode(1);
     const node2 = new ListNode(2);
     node1.next = node2;
