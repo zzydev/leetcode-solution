@@ -5,7 +5,7 @@ export default antfu({
     tsconfigPath: 'tsconfig.json',
   },
 
-  ignores: ['node_modules', 'public', '**/*.d.ts', '.vscode'],
+  ignores: ['node_modules', 'public', '**/*.d.ts', '.vscode', 'createLC.mjs'],
 
   rules: {
     'ts/no-explicit-any': 'off',
