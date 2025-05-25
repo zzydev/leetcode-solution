@@ -35,7 +35,8 @@ export class ListNode {
   }
 
   static connect(list: ListNode | null, tail: ListNode | null): void {
-    if (!list) return;
+    if (!list)
+      return;
     let current = list;
     while (current.next) {
       current = current.next;
