@@ -4,16 +4,16 @@ export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | n
   if (head === null) {
     return null;
   }
-  let dummyHead = new ListNode();
+  const dummyHead = new ListNode();
   dummyHead.next = head;
   let fast: ListNode | null = dummyHead;
   let slow: ListNode | null = dummyHead;
-  while (n -- && fast !== null) {
+  while (n-- && fast !== null) {
     fast = fast.next;
   }
   fast = fast!.next;
   while (fast !== null) {
-    fast  = fast.next;
+    fast = fast.next;
     slow = slow!.next;
   }
   slow!.next = slow!.next!.next;
