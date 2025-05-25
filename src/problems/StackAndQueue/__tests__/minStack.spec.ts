@@ -1,16 +1,15 @@
-import { describe, it, expect } from "vitest";
-import { MinStack } from "@/problems/StackAndQueue/minStack";
+import { describe, expect, it } from 'vitest';
+import { MinStack } from '@/problems/StackAndQueue/minStack';
 
-describe("MinStack", () => {
-
-  it("should return correct min after single push", () => {
+describe('minStack', () => {
+  it('should return correct min after single push', () => {
     const stack = new MinStack();
     stack.push(5);
     expect(stack.getMin()).toBe(5);
     expect(stack.top()).toBe(5);
   });
 
-  it("should track minimum correctly", () => {
+  it('should track minimum correctly', () => {
     const stack = new MinStack();
     stack.push(3);
     stack.push(2);
@@ -22,7 +21,7 @@ describe("MinStack", () => {
     expect(stack.getMin()).toBe(3);
   });
 
-  it("should handle duplicate minimum values", () => {
+  it('should handle duplicate minimum values', () => {
     const stack = new MinStack();
     stack.push(2);
     stack.push(2);
@@ -34,7 +33,7 @@ describe("MinStack", () => {
     expect(stack.getMin()).toBe(2);
   });
 
-  it("should update minimum after pop", () => {
+  it('should update minimum after pop', () => {
     const stack = new MinStack();
     stack.push(3);
     stack.push(1);
@@ -49,7 +48,7 @@ describe("MinStack", () => {
     expect(stack.getMin()).toBe(3);
   });
 
-  it("should work with negative numbers", () => {
+  it('should work with negative numbers', () => {
     const stack = new MinStack();
     stack.push(-2);
     stack.push(0);
@@ -60,31 +59,31 @@ describe("MinStack", () => {
     expect(stack.getMin()).toBe(-2);
   });
 
-  it("should throw when popping empty stack", () => {
+  it('should throw when popping empty stack', () => {
     const stack = new MinStack();
-    expect(() => stack.pop()).toThrow("Stack is empty");
+    expect(() => stack.pop()).toThrow('Stack is empty');
   });
 
-  it("should handle mixed operations", () => {
+  it('should handle mixed operations', () => {
     const stack = new MinStack();
     stack.push(5);
     stack.push(3);
     stack.push(4);
     stack.push(2);
     stack.push(6);
-    
+
     expect(stack.getMin()).toBe(2);
     expect(stack.top()).toBe(6);
-    
+
     stack.pop();
     expect(stack.getMin()).toBe(2);
-    
+
     stack.pop();
     expect(stack.getMin()).toBe(3);
-    
+
     stack.push(1);
     expect(stack.getMin()).toBe(1);
-    
+
     stack.pop();
     expect(stack.getMin()).toBe(3);
   });
