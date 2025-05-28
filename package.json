@@ -13,10 +13,10 @@
     "tsc": "tsc",
     "test": "vitest run",
     "createLC": "node createLC.mjs",
-    "eslint:linkedlist": "eslint -c eslint.config.ts --fix --cache --ext ./src/problems/LinkedList/*.{js,ts}",
-    "eslint:stack": "eslint -c eslint.config.ts --fix --cache --ext ./src/problems/StackAndQueue/*.{js,ts}",
-    "eslint:dfs": "eslint -c eslint.config.ts --fix --cache --ext ./src/problems/Backtracking/*.{js,ts}"
-
+    "eslint:linkedlist": "eslint -c eslint.config.ts --fix --cache --ext ./src/problems/LinkedList/**/*.{js,ts}",
+    "eslint:stack": "eslint -c eslint.config.ts --fix --cache --ext ./src/problems/StackAndQueue/**/*.{js,ts}",
+    "eslint:dfs": "eslint -c eslint.config.ts --fix --cache --ext ./src/problems/Backtracking/**/*.{js,ts}",
+    "eslint:tree": "eslint -c eslint.config.ts --fix --cache --ext ./src/problems/Tree/**/*.{js,ts}"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.13.2",
