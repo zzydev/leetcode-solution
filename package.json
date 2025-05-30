@@ -17,7 +17,10 @@
     "eslint:stack": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/StackAndQueue/**/*.{js,ts}'",
     "eslint:dfs": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/Backtracking/**/*.{js,ts}'",
     "eslint:tree": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/Tree/**/*.{js,ts}'",
-    "eslint:str": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/String/**/*.{js,ts}'"
+    "eslint:str": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/String/**/*.{js,ts}'",
+    "eslint:heap": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/Heap/**/*.{js,ts}'",
+    "eslint:greedy": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/Greedy/**/*.{js,ts}'",
+    "eslint:dp": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/DP/**/*.{js,ts}'"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.13.2",
