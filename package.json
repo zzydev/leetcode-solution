@@ -21,7 +21,8 @@
     "eslint:heap": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/Heap/**/*.{js,ts}'",
     "eslint:greedy": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/Greedy/**/*.{js,ts}'",
     "eslint:dp": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/DP/**/*.{js,ts}'",
-    "eslint:bs": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/BinarySearch/**/*.{js,ts}'"
+    "eslint:bs": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/BinarySearch/**/*.{js,ts}'",
+    "eslint:2p": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/TwoPointers/**/*.{js,ts}'"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.13.2",
