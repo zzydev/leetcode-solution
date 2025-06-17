@@ -10,7 +10,7 @@ export function CheckPermutation(s1: string, s2: string): boolean {
     if (!map.has(c)) {
       return false;
     }
-    const cnt = map.get(c);
+    const cnt = map.get(c) ?? 0;
     if (cnt === 0) {
       return false;
     }
