@@ -23,7 +23,8 @@
     "eslint:dp": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/DP/**/*.{js,ts}'",
     "eslint:bs": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/BinarySearch/**/*.{js,ts}'",
     "eslint:2p": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/TwoPointers/**/*.{js,ts}'",
-    "eslint:hashtable": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/HashTable/**/*.{js,ts}'"
+    "eslint:hashtable": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/HashTable/**/*.{js,ts}'",
+    "eslint:bit": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/BitManipulation/**/*.{js,ts}'"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.13.2",
