@@ -1,19 +1,19 @@
 {
-    "compilerOptions": {
-        "target": "ESNext",
-        "module": "ESNext",
-        "moduleResolution": "node",
-        "strict": true,
-        "noEmit": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "rootDir": "./src",
-        "baseUrl": "./src",
-        "paths": {
-            "@/*": ["./*"]
-        }
+  "compilerOptions": {
+    "target": "ESNext",
+    "baseUrl": "./src",
+    "rootDir": "./",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": ["./*"]
     },
-    "include": ["src/**/*.ts"],
-    "exclude": ["node_modules"]
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts", "./*.ts"],
+  "exclude": ["node_modules"]
 }
