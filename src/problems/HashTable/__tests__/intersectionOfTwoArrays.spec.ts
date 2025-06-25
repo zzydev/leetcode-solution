@@ -36,7 +36,9 @@ describe('intersection', () => {
   });
 
   it('should handle arrays with large numbers', () => {
-    expect(intersection([1000000, 2000000], [2000000, 3000000])).toEqual([2000000]);
+    expect(intersection([1000000, 2000000], [2000000, 3000000])).toEqual([
+      2000000,
+    ]);
   });
 
   it('should handle arrays with different orders', () => {
@@ -64,6 +66,8 @@ describe('intersection', () => {
   });
 
   it('should handle arrays with complex elements', () => {
-    expect(intersection([1, 2, 3, 4], [3, 4, 5, 6, 7, 8, 9, 10])).toEqual([3, 4]);
+    expect(intersection([1, 2, 3, 4], [3, 4, 5, 6, 7, 8, 9, 10])).toEqual([
+      3, 4,
+    ]);
   });
 });
