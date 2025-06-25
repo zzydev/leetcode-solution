@@ -7,8 +7,7 @@ export function minEatingSpeed(piles: number[], h: number): number {
     const speedEval = evaluateSpeed(piles, h, m);
     if (speedEval < 0) {
       l = m + 1;
-    }
-    else {
+    } else {
       r = m;
     }
   }
@@ -22,9 +21,7 @@ function evaluateSpeed(piles: number[], h: number, k: number): -1 | 0 | 1 {
     time += Math.ceil(p / k);
   }
 
-  if (time < h)
-    return 1;
-  if (time === h)
-    return 0;
+  if (time < h) return 1;
+  if (time === h) return 0;
   return -1;
 }
