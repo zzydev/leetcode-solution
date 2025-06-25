@@ -18,9 +18,11 @@ export function kClosest(points: number[][], k: number): number[][] {
   }
   const res: number[][] = [];
   while (!maxHeap.isEmpty()) {
-    const idx = maxHeap.peek()!;
-    res.push([points[idx][0], points[idx][1]]);
-    maxHeap.extract();
+    const idx = maxHeap.peek();
+    if (idx !== null) {
+      res.push([points[idx][0], points[idx][1]]);
+      maxHeap.extract();
+    }
   }
   return res;
-};
+}
