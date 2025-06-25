@@ -17,8 +17,7 @@ export function letterCasePermutation(s: string): string[] {
       dfs(index + 1);
 
       currentStr = currentStr.slice(0, -1);
-    }
-    else {
+    } else {
       currentStr += c.toLocaleLowerCase();
       dfs(index + 1);
       currentStr = currentStr.slice(0, -1);

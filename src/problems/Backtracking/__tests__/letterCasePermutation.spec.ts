@@ -22,7 +22,10 @@ describe('letterCasePermutation', () => {
 
   it('should handle mixed case and digits', () => {
     expect(letterCasePermutation('a1b2')).toEqual([
-      'a1b2', 'a1B2', 'A1b2', 'A1B2'
+      'a1b2',
+      'a1B2',
+      'A1b2',
+      'A1B2',
     ]);
     expect(letterCasePermutation('3z4')).toEqual(['3z4', '3Z4']);
   });
@@ -30,10 +33,18 @@ describe('letterCasePermutation', () => {
   it('should generate all permutations for multiple letters', () => {
     const result = letterCasePermutation('abc');
     expect(result).toHaveLength(8);
-    expect(result).toEqual(expect.arrayContaining([
-      'abc', 'abC', 'aBc', 'aBC',
-      'Abc', 'AbC', 'ABc', 'ABC'
-    ]));
+    expect(result).toEqual(
+      expect.arrayContaining([
+        'abc',
+        'abC',
+        'aBc',
+        'aBC',
+        'Abc',
+        'AbC',
+        'ABc',
+        'ABC',
+      ]),
+    );
   });
 
   it('should handle uppercase letters', () => {
@@ -44,8 +55,8 @@ describe('letterCasePermutation', () => {
   it('should handle complex cases', () => {
     const result = letterCasePermutation('1a2B');
     expect(result).toHaveLength(4);
-    expect(result).toEqual(expect.arrayContaining([
-      '1a2B', '1a2b', '1A2B', '1A2b'
-    ]));
+    expect(result).toEqual(
+      expect.arrayContaining(['1a2B', '1a2b', '1A2B', '1A2b']),
+    );
   });
-});    
+});
