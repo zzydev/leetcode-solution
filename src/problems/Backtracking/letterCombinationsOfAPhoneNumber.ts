@@ -1,5 +1,16 @@
 export function letterCombinations(digits: string): string[] {
-  const letterMap = ['', '', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+  const letterMap = [
+    '',
+    '',
+    'abc',
+    'def',
+    'ghi',
+    'jkl',
+    'mno',
+    'pqrs',
+    'tuv',
+    'wxyz',
+  ];
   const res: string[] = [];
   if (digits.length === 0) {
     return res;
@@ -15,10 +26,10 @@ export function letterCombinations(digits: string): string[] {
     const digit = Number.parseInt(digits[index]);
     const letters = letterMap[digit];
     const len = currentStr.length;
-    for (let i = 0; i < letters.length; i++) {
-      currentStr += letters[i];
+    for (const letter of letters) {
+      currentStr += letter;
       dfs(index + 1, currentStr);
       currentStr = currentStr.slice(0, len);
     }
-  };
+  }
 }
