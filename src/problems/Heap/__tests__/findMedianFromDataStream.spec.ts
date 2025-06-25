@@ -103,4 +103,4 @@ describe('MedianFinder', () => {
     medianFinder.addNum(4);
     expect(medianFinder.findMedian()).toBe(2.5);
   });
-});    
+});
