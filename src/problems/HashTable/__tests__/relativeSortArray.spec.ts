@@ -13,7 +13,9 @@ describe('relativeSortArray', () => {
   it('should sort according to target order', () => {
     const arr1 = [2, 3, 1, 3, 2, 4, 6, 7, 9, 2, 19];
     const arr2 = [2, 1, 4, 3, 9, 6];
-    expect(relativeSortArray(arr1, arr2)).toEqual([2, 2, 2, 1, 4, 3, 3, 9, 6, 7, 19]);
+    expect(relativeSortArray(arr1, arr2)).toEqual([
+      2, 2, 2, 1, 4, 3, 3, 9, 6, 7, 19,
+    ]);
   });
 
   it('should handle elements not in arr2 at the end in ascending order', () => {
@@ -61,7 +63,9 @@ describe('relativeSortArray', () => {
   it('should handle large numbers', () => {
     const arr1 = [1000, 2000, 3000, 2000, 1000];
     const arr2 = [2000, 1000];
-    expect(relativeSortArray(arr1, arr2)).toEqual([2000, 2000, 1000, 1000, 3000]);
+    expect(relativeSortArray(arr1, arr2)).toEqual([
+      2000, 2000, 1000, 1000, 3000,
+    ]);
   });
 
   it('should handle arr1 and arr2 with all same elements but different order', () => {
@@ -73,7 +77,9 @@ describe('relativeSortArray', () => {
   it('should handle arr1 with elements not in arr2 and sort them at the end', () => {
     const arr1 = [2, 1, 2, 5, 7, 1, 9, 3, 6, 8, 8];
     const arr2 = [2, 1, 8, 3];
-    expect(relativeSortArray(arr1, arr2)).toEqual([2, 2, 1, 1, 8, 8, 3, 5, 6, 7, 9]);
+    expect(relativeSortArray(arr1, arr2)).toEqual([
+      2, 2, 1, 1, 8, 8, 3, 5, 6, 7, 9,
+    ]);
   });
 
   it('should handle arr1 with multiple elements not in arr2', () => {
