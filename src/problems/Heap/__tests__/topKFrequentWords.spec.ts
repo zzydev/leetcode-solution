@@ -9,7 +9,18 @@ describe('topKFrequent', () => {
   });
 
   it('should handle ties by sorting lexicographically', () => {
-    const words = ['the', 'day', 'is', 'sunny', 'the', 'the', 'the', 'sunny', 'is', 'is'];
+    const words = [
+      'the',
+      'day',
+      'is',
+      'sunny',
+      'the',
+      'the',
+      'the',
+      'sunny',
+      'is',
+      'is',
+    ];
     const k = 4;
     expect(topKFrequent(words, k)).toEqual(['the', 'is', 'sunny', 'day']);
   });
@@ -47,7 +58,12 @@ describe('topKFrequent', () => {
   it('should handle case sensitivity', () => {
     const words = ['Hello', 'hello', 'World', 'world'];
     const k = 4;
-    expect(topKFrequent(words, k)).toEqual(['Hello', 'World', 'hello', 'world']);
+    expect(topKFrequent(words, k)).toEqual([
+      'Hello',
+      'World',
+      'hello',
+      'world',
+    ]);
   });
 
   it('should handle words with different lengths', () => {

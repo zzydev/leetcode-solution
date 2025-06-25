@@ -9,8 +9,8 @@ export function topKFrequent(words: string[], k: number): string[] {
     return a[1] < b[1];
   });
 
-  for (let i = 0; i < words.length; i++) {
-    map.set(words[i], (map.get(words[i]) || 0) + 1);
+  for (const word of words) {
+    map.set(word, (map.get(word) || 0) + 1);
   }
 
   for (const [str, freq] of map.entries()) {
@@ -21,8 +21,8 @@ export function topKFrequent(words: string[], k: number): string[] {
   }
   let res: string[] = [];
   while (minHeap.size() > 0) {
-    res.push(minHeap.extract()![0]);
+    res.push(minHeap.extract()?.[0] as string);
   }
   res = res.reverse();
   return res;
-};
+}
