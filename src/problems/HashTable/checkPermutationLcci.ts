@@ -3,8 +3,8 @@ export function CheckPermutation(s1: string, s2: string): boolean {
     return false;
   }
   const map = new Map<string, number>();
-  for (let i = 0; i < s1.length; i++) {
-    map.set(s1[i], (map.get(s1[i]) ?? 0) + 1);
+  for (const c of s1) {
+    map.set(c, (map.get(c) ?? 0) + 1);
   }
   for (const c of s2) {
     if (!map.has(c)) {
@@ -17,4 +17,4 @@ export function CheckPermutation(s1: string, s2: string): boolean {
     map.set(c, cnt - 1);
   }
   return true;
-};
+}
