@@ -1,6 +1,10 @@
 import { Heap } from '@/utils/Heap';
 
-export function kSmallestPairs(nums1: number[], nums2: number[], k: number): number[][] {
+export function kSmallestPairs(
+  nums1: number[],
+  nums2: number[],
+  k: number,
+): number[][] {
   if (nums1.length === 0 || nums2.length === 0 || k <= 0) {
     return [];
   }
@@ -14,7 +18,9 @@ export function kSmallestPairs(nums1: number[], nums2: number[], k: number): num
 
   const res: number[][] = [];
   for (let count = 0; count < k && !minHeap.isEmpty(); count++) {
-    const [i, j] = minHeap.extract()!;
+    const pair = minHeap.extract();
+    if (pair === null) break;
+    const [i, j] = pair;
     res.push([nums1[i], nums2[j]]);
 
     if (j + 1 < nums2.length) {
@@ -22,4 +28,4 @@ export function kSmallestPairs(nums1: number[], nums2: number[], k: number): num
     }
   }
   return res;
-};
+}
