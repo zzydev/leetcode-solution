@@ -6,15 +6,18 @@ export function minSubArrayLen(target: number, nums: number[]): number {
     const isPossible = hasSubarrayWithSumAtLeast(nums, m, target);
     if (isPossible < 0) {
       l = m + 1;
-    }
-    else {
+    } else {
       r = m;
     }
   }
   return l > nums.length ? 0 : l;
-};
+}
 
-function hasSubarrayWithSumAtLeast(nums: number[], len: number, target: number) {
+function hasSubarrayWithSumAtLeast(
+  nums: number[],
+  len: number,
+  target: number,
+) {
   let sum = 0;
   for (let i = 0; i < nums.length; i++) {
     sum += nums[i];
