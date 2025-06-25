@@ -12,7 +12,10 @@ describe('minRefuelStops', () => {
   it('should return -1 if not enough fuel even with all stations', () => {
     const target = 100;
     const startFuel = 1;
-    const stations = [[10, 10], [20, 20]];
+    const stations = [
+      [10, 10],
+      [20, 20],
+    ];
     expect(minRefuelStops(target, startFuel, stations)).toBe(-1);
   });
 
@@ -23,7 +26,7 @@ describe('minRefuelStops', () => {
       [10, 60],
       [20, 30],
       [30, 30],
-      [60, 40]
+      [60, 40],
     ];
     expect(minRefuelStops(target, startFuel, stations)).toBe(2);
   });
@@ -55,7 +58,7 @@ describe('minRefuelStops', () => {
       [579, 234],
       [673, 86],
       [808, 53],
-      [954, 49]
+      [954, 49],
     ];
     expect(minRefuelStops(target, startFuel, stations)).toBe(-1);
   });
@@ -66,7 +69,7 @@ describe('minRefuelStops', () => {
     const stations = [
       [25, 25],
       [50, 25],
-      [75, 25]
+      [75, 25],
     ];
     expect(minRefuelStops(target, startFuel, stations)).toBe(3);
   });
@@ -78,7 +81,7 @@ describe('minRefuelStops', () => {
       [10, 100],
       [110, 100],
       [210, 100],
-      [310, 1000]
+      [310, 1000],
     ];
     expect(minRefuelStops(target, startFuel, stations)).toBe(4);
   });
@@ -90,7 +93,7 @@ describe('minRefuelStops', () => {
       [20, 30],
       [10, 60],
       [30, 30],
-      [60, 40]
+      [60, 40],
     ];
     expect(minRefuelStops(target, startFuel, stations)).toBe(-1);
   });
@@ -101,4 +104,4 @@ describe('minRefuelStops', () => {
     const stations: number[][] = [];
     expect(minRefuelStops(target, startFuel, stations)).toBe(0);
   });
-});    
+});
