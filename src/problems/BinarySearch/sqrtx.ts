@@ -6,8 +6,7 @@ export function mySqrt(x: number): number {
     const cmp = cmpSqrt(x, m);
     if (cmp < 0) {
       l = m + 1;
-    }
-    else {
+    } else {
       r = m;
     }
   }
@@ -15,16 +14,14 @@ export function mySqrt(x: number): number {
     return l;
   }
   return l - 1;
-};
+}
 
 function cmpSqrt(x: number, m: number): -1 | 0 | 1 {
   if (m * m < x) {
     return -1;
-  }
-  else if (m * m === x) {
+  } else if (m * m === x) {
     return 0;
-  }
-  else {
+  } else {
     return 1;
   }
 }
