@@ -4,4 +4,4 @@ export function singleNumber(nums: number[]): number {
     res ^= num;
   }
   return res;
-};
+}
