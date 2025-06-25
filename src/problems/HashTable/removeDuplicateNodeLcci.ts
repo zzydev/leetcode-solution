@@ -19,4 +19,4 @@ export function removeDuplicateNodes(head: ListNode | null): ListNode | null {
     p = tmp;
   }
   return newHead.next;
-};
+}
