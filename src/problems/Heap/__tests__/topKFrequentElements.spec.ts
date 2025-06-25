@@ -24,7 +24,7 @@ describe('topKFrequent', () => {
     expect(result.length).toBe(3);
     nums.forEach((num) => {
       if (result.includes(num)) {
-        expect(result.filter(r => r === num).length).toBe(1);
+        expect(result.filter((r) => r === num).length).toBe(1);
       }
     });
   });
