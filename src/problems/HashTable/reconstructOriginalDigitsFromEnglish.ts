@@ -1,5 +1,16 @@
 export function originalDigits(s: string): string {
-  const nums = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  const nums = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ];
   const order: number[] = [0, 8, 3, 2, 6, 4, 5, 1, 7, 9];
   const cnt = new Map<string, number>();
 
@@ -23,7 +34,7 @@ export function originalDigits(s: string): string {
     while (canForm(word)) {
       res += num.toString();
       for (const c of word) {
-        cnt.set(c, cnt.get(c)! - 1);
+        cnt.set(c, (cnt.get(c) ?? 0) - 1);
       }
     }
   }

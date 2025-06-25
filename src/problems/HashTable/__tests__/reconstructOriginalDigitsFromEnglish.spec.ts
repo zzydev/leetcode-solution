@@ -35,6 +35,8 @@ describe('originalDigits', () => {
   });
 
   it('should return "0123456789" for full input', () => {
-    expect(originalDigits('zeroonetwothreefourfivesixseveneightnine')).toBe('0123456789');
+    expect(originalDigits('zeroonetwothreefourfivesixseveneightnine')).toBe(
+      '0123456789',
+    );
   });
 });
