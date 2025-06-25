@@ -9,22 +9,19 @@ export function peakIndexInMountainArray(arr: number[]): number {
     const direction = getSlopeDirection(arr, m);
     if (direction < 0) {
       l = m + 1;
-    }
-    else {
+    } else {
       r = m;
     }
   }
   return l;
-};
+}
 
 function getSlopeDirection(nums: number[], i: number) {
   if (nums[i - 1] < nums[i] && nums[i] < nums[i + 1]) {
     return -1; // ascending
-  }
-  else if (nums[i - 1] < nums[i] && nums[i] > nums[i + 1]) {
+  } else if (nums[i - 1] < nums[i] && nums[i] > nums[i + 1]) {
     return 0; // peak
-  }
-  else {
+  } else {
     return 1; // descending
   }
 }
