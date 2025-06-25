@@ -24,7 +24,10 @@ describe('threeSum', () => {
 
   it('should find triplets with negative numbers', () => {
     const nums = [-1, 0, 1, 2, -1, -4];
-    expect(threeSum(nums)).toEqual([[-1, -1, 2], [-1, 0, 1]]);
+    expect(threeSum(nums)).toEqual([
+      [-1, -1, 2],
+      [-1, 0, 1],
+    ]);
   });
 
   it('should handle array with duplicates that do not form valid triplets', () => {
@@ -39,7 +42,10 @@ describe('threeSum', () => {
 
   it('should handle array with multiple valid triplets', () => {
     const nums = [-2, 0, 1, 1, 2];
-    expect(threeSum(nums)).toEqual([[-2, 0, 2], [-2, 1, 1]]);
+    expect(threeSum(nums)).toEqual([
+      [-2, 0, 2],
+      [-2, 1, 1],
+    ]);
   });
 
   it('should handle array with no valid triplets', () => {
