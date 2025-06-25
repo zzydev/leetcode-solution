@@ -21,8 +21,7 @@ function lowerBound(nums: number[], target: number) {
     const m = l + ((r - l) >> 1);
     if (nums[m] < target) {
       l = m + 1;
-    }
-    else {
+    } else {
       r = m;
     }
   }
@@ -36,8 +35,7 @@ function upperBound(nums: number[], target: number) {
     const m = l + ((r - l) >> 1);
     if (nums[m] <= target) {
       l = m + 1;
-    }
-    else {
+    } else {
       r = m;
     }
   }
