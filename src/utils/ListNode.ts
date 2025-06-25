@@ -8,8 +8,7 @@ export class ListNode {
   }
 
   static fromArray(arr: number[]): ListNode | null {
-    if (!arr.length)
-      return null;
+    if (!arr.length) return null;
 
     const head = new ListNode(arr[0]);
     let current = head;
@@ -35,8 +34,7 @@ export class ListNode {
   }
 
   static connect(list: ListNode | null, tail: ListNode | null): void {
-    if (!list)
-      return;
+    if (!list) return;
     let current = list;
     while (current.next) {
       current = current.next;

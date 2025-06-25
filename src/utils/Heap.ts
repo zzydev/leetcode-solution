@@ -9,8 +9,7 @@ export class Heap<T> {
   }
 
   private getParentIndex(index: number): number {
-    if (index === 0)
-      throw new Error('index-0 doesn\'t have parent');
+    if (index === 0) throw new Error("index-0 doesn't have parent");
     return Math.floor((index - 1) / 2);
   }
 
@@ -49,7 +48,10 @@ export class Heap<T> {
       let childIndex = this.getLeftChildIndex(index);
       const rightChildIndex = this.getRightChildIndex(index);
 
-      if (rightChildIndex < size && this.compare(this.data[rightChildIndex], this.data[childIndex])) {
+      if (
+        rightChildIndex < size &&
+        this.compare(this.data[rightChildIndex], this.data[childIndex])
+      ) {
         childIndex = rightChildIndex;
       }
 
@@ -75,7 +77,7 @@ export class Heap<T> {
     }
 
     const root = this.data[0];
-    const lastElement = this.data.pop()!;
+    const lastElement = this.data.pop() as T;
 
     if (this.size() > 0) {
       this.data[0] = lastElement;
@@ -97,12 +99,14 @@ export class Heap<T> {
     return this.size() === 0;
   }
 
-  public static heapify<T>(elements: T[], compare?: CompareFunction<T>): Heap<T> {
+  public static heapify<T>(
+    elements: T[],
+    compare?: CompareFunction<T>,
+  ): Heap<T> {
     const heap = new Heap<T>(compare);
     heap.data = [...elements];
 
-    if (heap.size() <= 1)
-      return heap;
+    if (heap.size() <= 1) return heap;
 
     const startIndex = Math.floor((heap.size() - 2) / 2);
     for (let i = startIndex; i >= 0; i--) {

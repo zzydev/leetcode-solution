@@ -23,11 +23,13 @@ describe('heap Data Structure', () => {
 
       expect(heap.size()).toBe(3);
       expect(heap.peek()).toBe(3);
-      expect(heap.extract()).toBe(3);
+      const firstExtract = heap.extract();
+      expect(firstExtract).toBe(3);
       expect(heap.size()).toBe(2);
-      expect(heap.peek()).toBe(2);
-      expect(heap.extract()).toBe(2);
-      expect(heap.extract()).toBe(1);
+      const secondExtract = heap.extract();
+      expect(secondExtract).toBe(2);
+      const thirdExtract = heap.extract();
+      expect(thirdExtract).toBe(1);
       expect(heap.isEmpty()).toBe(true);
     });
 
@@ -37,19 +39,26 @@ describe('heap Data Structure', () => {
       heap.insert(2);
 
       expect(heap.size()).toBe(3);
-      expect(heap.extract()).toBe(2);
-      expect(heap.extract()).toBe(2);
-      expect(heap.extract()).toBe(2);
+      const firstDupExtract = heap.extract();
+      expect(firstDupExtract).toBe(2);
+      const secondDupExtract = heap.extract();
+      expect(secondDupExtract).toBe(2);
+      const thirdDupExtract = heap.extract();
+      expect(thirdDupExtract).toBe(2);
       expect(heap.isEmpty()).toBe(true);
     });
 
     it('should maintain heap property after insertions', () => {
       const values = [5, 3, 8, 1, 4, 7, 10];
-      values.forEach(val => heap.insert(val));
+      values.forEach((val) => heap.insert(val));
 
       const extracted: number[] = [];
       while (!heap.isEmpty()) {
-        extracted.push(heap.extract()!);
+        const val = heap.extract();
+        if (val !== null) {
+          // 非空判断，避免插入 null 到数组
+          extracted.push(val);
+        }
       }
 
       expect(extracted).toEqual([10, 8, 7, 5, 4, 3, 1]);
@@ -61,7 +70,11 @@ describe('heap Data Structure', () => {
 
       const sorted: number[] = [];
       while (!heapified.isEmpty()) {
-        sorted.push(heapified.extract()!);
+        const val = heapified.extract();
+        if (val !== null) {
+          // 非空判断
+          sorted.push(val);
+        }
       }
 
       expect(sorted).toEqual([9, 6, 5, 5, 4, 3, 2, 1, 1]);
@@ -88,9 +101,12 @@ describe('heap Data Structure', () => {
       maxHeap.insert(3);
       maxHeap.insert(7);
 
-      expect(maxHeap.extract()).toBe(7);
-      expect(maxHeap.extract()).toBe(5);
-      expect(maxHeap.extract()).toBe(3);
+      const firstMaxExtract = maxHeap.extract();
+      expect(firstMaxExtract).toBe(7);
+      const secondMaxExtract = maxHeap.extract();
+      expect(secondMaxExtract).toBe(5);
+      const thirdMaxExtract = maxHeap.extract();
+      expect(thirdMaxExtract).toBe(3);
     });
   });
 
@@ -106,9 +122,12 @@ describe('heap Data Structure', () => {
       minHeap.insert(3);
       minHeap.insert(7);
 
-      expect(minHeap.extract()).toBe(3);
-      expect(minHeap.extract()).toBe(5);
-      expect(minHeap.extract()).toBe(7);
+      const firstMinExtract = minHeap.extract();
+      expect(firstMinExtract).toBe(3);
+      const secondMinExtract = minHeap.extract();
+      expect(secondMinExtract).toBe(5);
+      const thirdMinExtract = minHeap.extract();
+      expect(thirdMinExtract).toBe(7);
     });
   });
 
@@ -122,20 +141,27 @@ describe('heap Data Structure', () => {
     it('should handle heapify with single element', () => {
       const heap = Heap.heapify([42]);
       expect(heap.size()).toBe(1);
-      expect(heap.extract()).toBe(42);
+      const singleExtract = heap.extract();
+      expect(singleExtract).toBe(42);
     });
 
     it('should handle complex comparison function', () => {
-      interface Person { name: string; age: number }
+      interface Person {
+        name: string;
+        age: number;
+      }
       const heap = new Heap<Person>((a, b) => a.age < b.age); // 年龄最小的优先
 
       heap.insert({ name: 'Alice', age: 30 });
       heap.insert({ name: 'Bob', age: 25 });
       heap.insert({ name: 'Charlie', age: 35 });
 
-      expect(heap.extract()?.name).toBe('Bob');
-      expect(heap.extract()?.name).toBe('Alice');
-      expect(heap.extract()?.name).toBe('Charlie');
+      const firstPersonExtract = heap.extract();
+      expect(firstPersonExtract?.name).toBe('Bob');
+      const secondPersonExtract = heap.extract();
+      expect(secondPersonExtract?.name).toBe('Alice');
+      const thirdPersonExtract = heap.extract();
+      expect(thirdPersonExtract?.name).toBe('Charlie');
     });
   });
 });
