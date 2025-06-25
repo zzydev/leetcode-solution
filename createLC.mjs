@@ -28,21 +28,23 @@ async function generateFiles(baseDir, fileName) {
   const srcFile = path.join(srcDir, fileName);
   const testFile = path.join(testDir, fileName.replace('.ts', '.spec.ts'));
 
-  await Promise.all([fs.writeFile(srcFile, '', { flag: 'w', recursive: true }), fs.writeFile(testFile, '', { flag: 'w', recursive: true })]);
+  await Promise.all([
+    fs.writeFile(srcFile, '', { flag: 'w', recursive: true }),
+    fs.writeFile(testFile, '', { flag: 'w', recursive: true }),
+  ]);
 }
 
 async function main() {
   try {
     const dir = process.argv[2];
-    const leetCodeTitle = (process.argv).slice(3);
+    const leetCodeTitle = process.argv.slice(3);
 
     if (!leetCodeTitle) {
       process.exit(1);
     }
     const fileName = getLCFilename(leetCodeTitle.join(' '));
     await generateFiles(dir, fileName);
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Error:', error.message);
     process.exit(1);
   }

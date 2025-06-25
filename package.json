@@ -13,25 +13,13 @@
     "tsc": "tsc",
     "test": "vitest run",
     "createLC": "node createLC.mjs",
-    "eslint:linkedlist": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/LinkedList/**/*.{js,ts}'",
-    "eslint:stack": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/StackAndQueue/**/*.{js,ts}'",
-    "eslint:dfs": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/Backtracking/**/*.{js,ts}'",
-    "eslint:tree": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/Tree/**/*.{js,ts}'",
-    "eslint:str": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/String/**/*.{js,ts}'",
-    "eslint:heap": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/Heap/**/*.{js,ts}'",
-    "eslint:greedy": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/Greedy/**/*.{js,ts}'",
-    "eslint:dp": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/DP/**/*.{js,ts}'",
-    "eslint:bs": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/BinarySearch/**/*.{js,ts}'",
-    "eslint:2p": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/TwoPointers/**/*.{js,ts}'",
-    "eslint:hashtable": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/HashTable/**/*.{js,ts}'",
-    "eslint:bit": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/BitManipulation/**/*.{js,ts}'",
-    "eslint:sort": "eslint -c eslint.config.ts --fix --cache --ext .js,.ts './src/problems/Sorting/**/*.{js,ts}'"
+    "lint:ox": "oxlint -c .oxlintrc.json",
+    "lint:prettier": "prettier --ignore-unknown --cache --write ."
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.13.2",
-    "@types/node": "^22.15.21",
-    "eslint": "^9.27.0",
-    "jiti": "^2.4.2",
+    "@types/node": "^24.0.4",
+    "oxlint": "^1.3.0",
+    "prettier": "3.6.1",
     "typescript": "^5.8.3",
     "vitest": "^3.1.4"
   }
