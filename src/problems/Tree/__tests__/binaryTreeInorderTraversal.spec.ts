@@ -68,7 +68,19 @@ describe('inorderTraversal', () => {
     //   4       5
     //  /         \
     // 6           7
-    const root = TreeNode.fromArray([1, 2, 3, 4, null, null, 5, 6, null, null, 7]);
+    const root = TreeNode.fromArray([
+      1,
+      2,
+      3,
+      4,
+      null,
+      null,
+      5,
+      6,
+      null,
+      null,
+      7,
+    ]);
     expect(inorderTraversal(root)).toEqual([6, 4, 2, 1, 3, 5, 7]);
   });
 
