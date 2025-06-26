@@ -2,6 +2,14 @@ import { describe, expect, it } from 'vitest';
 import { reverseList } from '@/problems/LinkedList/reverseLinkedList';
 import { ListNode } from '@/utils/ListNode';
 
+function getNthNode(head: ListNode | null, n: number): ListNode | null {
+  let current = head;
+  for (let i = 0; i < n && current; i++) {
+    current = current.next;
+  }
+  return current;
+}
+
 describe('reverseList', () => {
   it('should return null for empty list', () => {
     expect(reverseList(null)).toBeNull();
@@ -33,12 +41,15 @@ describe('reverseList', () => {
 
   it('should properly reverse and not create new nodes', () => {
     const list = ListNode.fromArray([1, 2, 3]);
-    const originalSecondNode = list!.next;
+    const originalSecondNode = getNthNode(list, 1);
     const result = reverseList(list);
 
-    // 验证节点引用关系
-    expect(result!.next!.next).toBe(list);
-    expect(result!.next).toBe(originalSecondNode);
+    const firstNode = result;
+    const secondNode = firstNode?.next;
+    const thirdNode = secondNode?.next;
+
+    expect(thirdNode).toBe(list);
+    expect(secondNode).toBe(originalSecondNode);
   });
 
   it('should handle list with duplicate values', () => {

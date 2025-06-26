@@ -10,4 +10,4 @@ export function reverseList(head: ListNode | null): ListNode | null {
     p = tmp;
   }
   return newHead;
-};
+}
