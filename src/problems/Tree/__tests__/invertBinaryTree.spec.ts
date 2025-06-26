@@ -113,8 +113,32 @@ describe('invertTree', () => {
     //       5   4
     //      /     \
     //     7       6
-    const root = TreeNode.fromArray([1, 2, 3, 4, 5, null, null, 6, null, null, 7]);
+    const root = TreeNode.fromArray([
+      1,
+      2,
+      3,
+      4,
+      5,
+      null,
+      null,
+      6,
+      null,
+      null,
+      7,
+    ]);
     const inverted = invertTree(root);
-    expect(inverted?.toArray()).toEqual([1, 3, 2, null, null, 5, 4, 7, null, null, 6]);
+    expect(inverted?.toArray()).toEqual([
+      1,
+      3,
+      2,
+      null,
+      null,
+      5,
+      4,
+      7,
+      null,
+      null,
+      6,
+    ]);
   });
 });
