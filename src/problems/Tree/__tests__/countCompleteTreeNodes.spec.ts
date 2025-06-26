@@ -64,7 +64,9 @@ describe('countNodes', () => {
 
   it('should count nodes for large complete tree', () => {
     // A complete tree with 15 nodes (perfect tree of height 3)
-    const root = TreeNode.fromArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
+    const root = TreeNode.fromArray([
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+    ]);
     expect(countNodes(root)).toBe(15);
   });
 
