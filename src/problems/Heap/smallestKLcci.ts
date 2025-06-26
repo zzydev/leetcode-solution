@@ -12,4 +12,4 @@ export function smallestK(arr: number[], k: number): number[] {
     }
   }
   return maxHeap.toArray();
-};
+}
