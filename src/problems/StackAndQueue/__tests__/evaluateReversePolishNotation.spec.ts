@@ -26,7 +26,23 @@ describe('evalRPN', () => {
 
   it('should handle complex expressions', () => {
     expect(evalRPN(['4', '13', '5', '/', '+'])).toBe(6);
-    expect(evalRPN(['10', '6', '9', '3', '+', '-11', '*', '/', '*', '17', '+', '5', '+'])).toBe(22);
+    expect(
+      evalRPN([
+        '10',
+        '6',
+        '9',
+        '3',
+        '+',
+        '-11',
+        '*',
+        '/',
+        '*',
+        '17',
+        '+',
+        '5',
+        '+',
+      ]),
+    ).toBe(22);
   });
 
   it('should handle single number input', () => {
