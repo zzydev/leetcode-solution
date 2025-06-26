@@ -24,7 +24,7 @@ describe('kthToLast', () => {
   });
 
   it('should work with large lists', () => {
-    const arr = [...Array.from({ length: 1000 }).keys()].map(i => i + 1); // 1到1000
+    const arr = [...Array.from({ length: 1000 }).keys()].map((i) => i + 1); // 1到1000
     const list = ListNode.fromArray(arr);
     expect(kthToLast(list, 1)).toBe(1000); // 最后一个
     expect(kthToLast(list, 500)).toBe(501); // 中间

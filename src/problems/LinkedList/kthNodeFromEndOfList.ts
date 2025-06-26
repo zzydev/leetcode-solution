@@ -8,9 +8,12 @@ export function kthToLast(head: ListNode | null, k: number): number {
   while (k-- && fast !== null) {
     fast = fast.next;
   }
-  while (fast !== null) {
+  while (fast !== null && slow !== null) {
     fast = fast.next;
-    slow = slow!.next;
+    slow = slow.next;
   }
-  return slow!.val;
-};
+  if (slow === null) {
+    throw new Error('k is larger than the length of the linked list');
+  }
+  return slow.val;
+}
