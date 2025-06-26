@@ -9,7 +9,10 @@ export class MyQueue {
   pushToPop() {
     if (this.stackPop.length === 0) {
       while (this.stackPush.length !== 0) {
-        this.stackPop.push(this.stackPush.pop()!);
+        const element = this.stackPush.pop();
+        if (element !== undefined) {
+          this.stackPop.push(element);
+        }
       }
     }
   }
@@ -24,7 +27,11 @@ export class MyQueue {
       throw new Error('Queue is empty');
     }
     this.pushToPop();
-    return this.stackPop.pop()!;
+    const element = this.stackPop.pop();
+    if (element === undefined) {
+      throw new Error('Queue is empty');
+    }
+    return element;
   }
 
   peek(): number {
@@ -38,8 +45,7 @@ export class MyQueue {
   empty(): boolean {
     if (this.stackPush.length === 0 && this.stackPop.length === 0) {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
