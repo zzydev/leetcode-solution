@@ -41,7 +41,9 @@ describe('sortColors', () => {
   });
 
   it('should sort large random array', () => {
-    const arr = Array.from({ length: 1000 }, () => Math.floor(Math.random() * 3));
+    const arr = Array.from({ length: 1000 }, () =>
+      Math.floor(Math.random() * 3),
+    );
     sortColors(arr);
     expect(isSortedColors(arr)).toBe(true);
   });

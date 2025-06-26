@@ -7,13 +7,11 @@ export function sortColors(nums: number[]): void {
       [nums[i], nums[j]] = [nums[j], nums[i]];
       i++;
       j++;
-    }
-    else if (nums[i] === 1) {
+    } else if (nums[i] === 1) {
       i++;
-    }
-    else {
+    } else {
       [nums[i], nums[k]] = [nums[k], nums[i]];
       k--;
     }
   }
-};
+}
