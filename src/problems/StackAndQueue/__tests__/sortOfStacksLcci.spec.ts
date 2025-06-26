@@ -49,9 +49,11 @@ describe('sortedStack', () => {
 
   it('应该能处理大量数据排序', () => {
     const testSize = 1000;
-    const nums = Array.from({ length: testSize }, () => Math.floor(Math.random() * 10000));
+    const nums = Array.from({ length: testSize }, () =>
+      Math.floor(Math.random() * 10000),
+    );
 
-    nums.forEach(num => stack.push(num));
+    nums.forEach((num) => stack.push(num));
 
     let prev = stack.peek();
     stack.pop();

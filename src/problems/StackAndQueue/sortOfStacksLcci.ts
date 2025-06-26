@@ -8,11 +8,19 @@ export class SortedStack {
 
   push(val: number): void {
     while (this.stack.length !== 0 && this.peek() < val) {
-      this.tmp.push(this.stack.pop()!);
+      const element = this.stack.pop();
+      if (element === undefined) {
+        throw new Error('Stack is empty');
+      }
+      this.tmp.push(element);
     }
     this.stack.push(val);
     while (this.tmp.length !== 0) {
-      this.stack.push(this.tmp.pop()!);
+      const element = this.tmp.pop();
+      if (element === undefined) {
+        throw new Error('Stack is empty');
+      }
+      this.stack.push(element);
     }
   }
 
