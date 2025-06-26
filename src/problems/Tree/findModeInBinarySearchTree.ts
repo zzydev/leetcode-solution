@@ -17,19 +17,17 @@ export function findMode(root: TreeNode | null): number[] {
       if (cnt === 0 || preValue === root.val) {
         cnt++;
         preValue = root.val;
-      }
-      else {
+      } else {
         preValue = root.val;
         cnt = 1;
       }
       if (cnt > ansCnt) {
         ans = [preValue];
         ansCnt = cnt;
-      }
-      else if (cnt === ansCnt) {
+      } else if (cnt === ansCnt) {
         ans.push(preValue);
       }
       inorderTraversal(root.right);
     }
   }
-};
+}
