@@ -5,8 +5,7 @@ export function merge(A: number[], m: number, B: number[], n: number): void {
   while (i >= 0 && j >= 0) {
     if (A[i] >= B[j]) {
       A[k--] = A[i--];
-    }
-    else {
+    } else {
       A[k--] = B[j--];
     }
   }
@@ -16,4 +15,4 @@ export function merge(A: number[], m: number, B: number[], n: number): void {
   while (j >= 0) {
     A[k--] = B[j--];
   }
-};
+}
