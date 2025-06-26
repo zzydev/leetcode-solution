@@ -7,4 +7,4 @@ export function maxDepth(root: TreeNode | null): number {
   const leftMaxDepth = maxDepth(root.left);
   const rightMaxDepth = maxDepth(root.right);
   return Math.max(leftMaxDepth, rightMaxDepth) + 1;
-};
+}
