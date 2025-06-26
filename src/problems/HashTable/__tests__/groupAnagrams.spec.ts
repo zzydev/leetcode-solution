@@ -13,19 +13,15 @@ describe('groupAnagrams', () => {
   it('should group anagrams together', () => {
     const input = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
     const result = groupAnagrams(input);
-    const expectedGroups = [
-      ['eat', 'tea', 'ate'],
-      ['tan', 'nat'],
-      ['bat'],
-    ];
+    const expectedGroups = [['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']];
     expect(result.length).toBe(expectedGroups.length);
     for (const group of result) {
       const sortedGroup = group.sort();
       const found = expectedGroups.some((g) => {
         const sortedExpected = g.sort();
         return (
-          sortedExpected.length === sortedGroup.length
-          && sortedExpected.every((v, i) => v === sortedGroup[i])
+          sortedExpected.length === sortedGroup.length &&
+          sortedExpected.every((v, i) => v === sortedGroup[i])
         );
       });
       expect(found).toBe(true);
@@ -38,7 +34,7 @@ describe('groupAnagrams', () => {
     const expectedGroups = [['Eat'], ['eat'], ['EAT']];
     expect(result.length).toBe(expectedGroups.length);
     for (const group of result) {
-      const found = expectedGroups.some(g =>
+      const found = expectedGroups.some((g) =>
         g.every((v, i) => v === group[i]),
       );
       expect(found).toBe(true);
@@ -54,7 +50,7 @@ describe('groupAnagrams', () => {
     ];
     expect(result.length).toBe(expectedGroups.length);
     for (const group of result) {
-      const found = expectedGroups.some(g =>
+      const found = expectedGroups.some((g) =>
         g.every((v, i) => v === group[i]),
       );
       expect(found).toBe(true);
