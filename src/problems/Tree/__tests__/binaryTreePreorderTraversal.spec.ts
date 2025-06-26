@@ -68,7 +68,19 @@ describe('preorderTraversal', () => {
     //   4       5
     //  /         \
     // 6           7
-    const root = TreeNode.fromArray([1, 2, 3, 4, null, null, 5, 6, null, null, 7]);
+    const root = TreeNode.fromArray([
+      1,
+      2,
+      3,
+      4,
+      null,
+      null,
+      5,
+      6,
+      null,
+      null,
+      7,
+    ]);
     expect(preorderTraversal(root)).toEqual([1, 2, 4, 6, 3, 5, 7]);
   });
 
