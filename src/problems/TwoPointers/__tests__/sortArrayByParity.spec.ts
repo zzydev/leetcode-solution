@@ -21,8 +21,8 @@ describe('sortArrayByParity', () => {
 
   it('should group even numbers before odd numbers', () => {
     const result = sortArrayByParity([3, 1, 2, 4]);
-    const evens = result.filter(n => n % 2 === 0);
-    const odds = result.filter(n => n % 2 !== 0);
+    const evens = result.filter((n) => n % 2 === 0);
+    const odds = result.filter((n) => n % 2 !== 0);
 
     expect(evens).toHaveLength(2);
     expect(evens).toContain(2);
@@ -35,8 +35,8 @@ describe('sortArrayByParity', () => {
 
   it('should handle mixed even and odd numbers', () => {
     const result = sortArrayByParity([5, 0, 1, 2, 3, 4]);
-    const even = result.filter(n => n % 2 === 0);
-    const odd = result.filter(n => n % 2 !== 0);
+    const even = result.filter((n) => n % 2 === 0);
+    const odd = result.filter((n) => n % 2 !== 0);
     expect(even).toHaveLength(3);
     expect(odd).toHaveLength(3);
     expect([...even, ...odd]).toEqual(result);
