@@ -4,10 +4,8 @@ export function mergeTwoLists(
   list1: ListNode | null,
   list2: ListNode | null,
 ): ListNode | null {
-  if (list1 == null)
-    return list2;
-  if (list2 == null)
-    return list1;
+  if (list1 == null) return list2;
+  if (list2 == null) return list1;
   let p1: ListNode | null = list1;
   let p2: ListNode | null = list2;
   const dummyHead = new ListNode();
@@ -17,16 +15,13 @@ export function mergeTwoLists(
       tail.next = p1;
       tail = p1;
       p1 = p1.next;
-    }
-    else {
+    } else {
       tail.next = p2;
       tail = p2;
       p2 = p2.next;
     }
   }
-  if (p1 != null)
-    tail.next = p1;
-  if (p2 != null)
-    tail.next = p2;
+  if (p1 != null) tail.next = p1;
+  if (p2 != null) tail.next = p2;
   return dummyHead.next;
 }

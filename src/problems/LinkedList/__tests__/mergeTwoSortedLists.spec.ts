@@ -60,10 +60,10 @@ describe('mergeTwoLists', () => {
 
   it('should merge large lists', () => {
     const list1 = ListNode.fromArray(
-      [...Array.from({ length: 1000 }).keys()].map(x => x * 2),
+      [...Array.from({ length: 1000 }).keys()].map((x) => x * 2),
     ); // 0,2,4,...1998
     const list2 = ListNode.fromArray(
-      [...Array.from({ length: 1000 }).keys()].map(x => x * 2 + 1),
+      [...Array.from({ length: 1000 }).keys()].map((x) => x * 2 + 1),
     ); // 1,3,5,...1999
     const expected = [...Array.from({ length: 2000 }).keys()]; // 0,1,2,...1999
 
