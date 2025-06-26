@@ -6,19 +6,19 @@ export function threeSumClosest(nums: number[], target: number): number {
     let l = i + 1;
     let r = len - 1;
     while (l < r) {
-      if (Math.abs(nums[i] + nums[l] + nums[r] - target) < Math.abs(ans - target)) {
+      if (
+        Math.abs(nums[i] + nums[l] + nums[r] - target) < Math.abs(ans - target)
+      ) {
         ans = nums[i] + nums[l] + nums[r];
       }
       if (nums[i] + nums[l] + nums[r] === target) {
         return target;
-      }
-      else if (nums[i] + nums[l] + nums[r] > target) {
+      } else if (nums[i] + nums[l] + nums[r] > target) {
         r--;
-      }
-      else {
+      } else {
         l++;
       }
     }
   }
   return ans;
-};
+}
