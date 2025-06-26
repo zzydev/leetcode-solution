@@ -32,7 +32,9 @@ describe('removeDuplicates', () => {
   });
 
   it('should handle mixed characters', () => {
-    expect(removeDuplicates('yfttttfbbbbnnnnffbgffffgbbbbgssssgthyyyy', 4)).toBe('ybth');
+    expect(
+      removeDuplicates('yfttttfbbbbnnnnffbgffffgbbbbgssssgthyyyy', 4),
+    ).toBe('ybth');
   });
 
   it('should handle unicode characters', () => {
@@ -42,6 +44,8 @@ describe('removeDuplicates', () => {
 
   it('should handle large strings efficiently', () => {
     const str = `${'ab'.repeat(50000)}ccc${'de'.repeat(50000)}`;
-    expect(removeDuplicates(str, 3)).toBe('ab'.repeat(50000) + 'de'.repeat(50000));
+    expect(removeDuplicates(str, 3)).toBe(
+      'ab'.repeat(50000) + 'de'.repeat(50000),
+    );
   });
 });

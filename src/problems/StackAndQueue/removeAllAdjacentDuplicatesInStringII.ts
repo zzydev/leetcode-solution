@@ -22,12 +22,14 @@ export function removeDuplicates(s: string, k: number): string {
   let res = '';
   while (stack.length !== 0) {
     const p = stack.pop();
-    for (let i = 0; i < p!.count; i++) {
-      res += p!.c;
+    if (p !== undefined) {
+      for (let i = 0; i < p.count; i++) {
+        res += p.c;
+      }
     }
   }
   return res.split('').reverse().join('');
-};
+}
 
 class Pair {
   c: string;
