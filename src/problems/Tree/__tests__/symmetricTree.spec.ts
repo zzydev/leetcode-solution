@@ -48,7 +48,19 @@ describe('isSymmetric', () => {
     //   3       3
     //  /         \
     // 4           4
-    const root = TreeNode.fromArray([1, 2, 2, 3, null, null, 3, 4, null, null, 4]);
+    const root = TreeNode.fromArray([
+      1,
+      2,
+      2,
+      3,
+      null,
+      null,
+      3,
+      4,
+      null,
+      null,
+      4,
+    ]);
     expect(isSymmetric(root)).toBe(true);
   });
 
