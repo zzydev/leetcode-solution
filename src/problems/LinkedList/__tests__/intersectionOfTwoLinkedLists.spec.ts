@@ -2,6 +2,38 @@ import { describe, expect, it } from 'vitest';
 import { getIntersectionNode } from '@/problems/LinkedList/intersectionOfTwoLinkedLists';
 import { ListNode } from '@/utils/ListNode';
 
+// 辅助函数：安全地连接链表
+function connectLists(
+  head: ListNode | null,
+  tail: ListNode | null,
+): ListNode | null {
+  if (!head || !tail) return null;
+
+  let current = head;
+  while (current.next) {
+    current = current.next;
+  }
+  current.next = tail;
+  return head;
+}
+
+// 辅助函数：创建相交链表
+function createIntersectingLists(
+  aPrefix: number[],
+  bPrefix: number[],
+  common: number[],
+): {
+  listA: ListNode | null;
+  listB: ListNode | null;
+  intersection: ListNode | null;
+} {
+  const commonNode = ListNode.fromArray(common);
+  const listA = connectLists(ListNode.fromArray(aPrefix), commonNode);
+  const listB = connectLists(ListNode.fromArray(bPrefix), commonNode);
+
+  return { listA, listB, intersection: commonNode };
+}
+
 describe('getIntersectionNode', () => {
   it('should return null for two empty lists', () => {
     expect(getIntersectionNode(null, null)).toBeNull();
@@ -27,37 +59,33 @@ describe('getIntersectionNode', () => {
   });
 
   it('should find intersection at middle node', () => {
-    const common = ListNode.fromArray([8, 9, 10]);
-    const listA = ListNode.fromArray([1, 2, 3]);
-    const listB = ListNode.fromArray([4, 5]);
+    const { listA, listB, intersection } = createIntersectingLists(
+      [1, 2, 3],
+      [4, 5],
+      [8, 9, 10],
+    );
 
-    // Connect lists to common part
-    listA!.next!.next!.next = common;
-    listB!.next!.next = common;
-
-    expect(getIntersectionNode(listA, listB)).toBe(common);
+    expect(getIntersectionNode(listA, listB)).toBe(intersection);
   });
 
   it('should find intersection at last node', () => {
-    const common = ListNode.fromArray([7]);
-    const listA = ListNode.fromArray([1, 2, 3, 4, 5]);
-    const listB = ListNode.fromArray([6, 7, 8]);
+    const { listA, listB, intersection } = createIntersectingLists(
+      [1, 2, 3, 4, 5],
+      [6, 7, 8],
+      [7],
+    );
 
-    listA!.next!.next!.next!.next!.next = common;
-    listB!.next!.next!.next = common;
-
-    expect(getIntersectionNode(listA, listB)).toBe(common);
+    expect(getIntersectionNode(listA, listB)).toBe(intersection);
   });
 
   it('should handle lists of different lengths', () => {
-    const common = ListNode.fromArray([20, 21]);
-    const listA = ListNode.fromArray([1, 2, 3, 4, 5]);
-    const listB = ListNode.fromArray([6, 7]);
+    const { listA, listB, intersection } = createIntersectingLists(
+      [1, 2, 3, 4, 5],
+      [6, 7],
+      [20, 21],
+    );
 
-    listA!.next!.next!.next!.next!.next = common;
-    listB!.next!.next = common;
-
-    expect(getIntersectionNode(listA, listB)).toBe(common);
+    expect(getIntersectionNode(listA, listB)).toBe(intersection);
   });
 
   it('should handle large lists', () => {
@@ -65,14 +93,9 @@ describe('getIntersectionNode', () => {
     const listA = ListNode.fromArray([...Array.from({ length: 50 }).keys()]);
     const listB = ListNode.fromArray([...Array.from({ length: 75 }).keys()]);
 
-    // Connect to common part
-    let lastA = listA;
-    while (lastA!.next) lastA = lastA!.next;
-    lastA!.next = common;
-
-    let lastB = listB;
-    while (lastB!.next) lastB = lastB!.next;
-    lastB!.next = common;
+    // 安全连接链表
+    connectLists(listA, common);
+    connectLists(listB, common);
 
     expect(getIntersectionNode(listA, listB)).toBe(common);
   });
