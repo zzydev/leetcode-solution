@@ -1,6 +1,9 @@
 import { ListNode } from '@/utils/ListNode';
 
-export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+export function removeNthFromEnd(
+  head: ListNode | null,
+  n: number,
+): ListNode | null {
   if (head === null) {
     return null;
   }
@@ -11,11 +14,16 @@ export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | n
   while (n-- && fast !== null) {
     fast = fast.next;
   }
-  fast = fast!.next;
-  while (fast !== null) {
-    fast = fast.next;
-    slow = slow!.next;
+  if (fast === null) {
+    return dummyHead.next;
   }
-  slow!.next = slow!.next!.next;
+  fast = fast.next;
+  while (fast !== null && slow !== null) {
+    fast = fast.next;
+    slow = slow.next;
+  }
+  if (slow !== null && slow.next !== null) {
+    slow.next = slow.next.next;
+  }
   return dummyHead.next;
-};
+}
