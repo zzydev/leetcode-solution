@@ -10,12 +10,12 @@ export function binaryTreePaths(root: TreeNode | null): string[] {
     return res;
   }
   const left = binaryTreePaths(root.left);
-  for (let i = 0; i < left.length; i++) {
-    res.push(`${root.val}->${left[i]}`);
+  for (const str of left) {
+    res.push(`${root.val}->${str}`);
   }
   const right = binaryTreePaths(root.right);
-  for (let i = 0; i < right.length; i++) {
-    res.push(`${root.val}->${right[i]}`);
+  for (const str of right) {
+    res.push(`${root.val}->${str}`);
   }
   return res;
-};
+}
