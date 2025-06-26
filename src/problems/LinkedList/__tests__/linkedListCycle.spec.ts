@@ -2,6 +2,27 @@ import { describe, expect, it } from 'vitest';
 import { hasCycle } from '@/problems/LinkedList/linkedListCycle';
 import { ListNode } from '@/utils/ListNode';
 
+function getLastNode(head: ListNode | null): ListNode | null {
+  if (!head) return null;
+
+  let current = head;
+  while (current.next) {
+    current = current.next;
+  }
+  return current;
+}
+
+function getNthNode(head: ListNode | null, n: number): ListNode | null {
+  if (!head) return null;
+
+  let current = head;
+  for (let i = 0; i < n; i++) {
+    if (!current.next) return null;
+    current = current.next;
+  }
+  return current;
+}
+
 describe('hasCycle', () => {
   it('should return false for empty list', () => {
     expect(hasCycle(null)).toBe(false);
@@ -33,30 +54,40 @@ describe('hasCycle', () => {
 
   it('should detect tail cycle', () => {
     const list = ListNode.fromArray([1, 2, 3, 4, 5]);
-    // Make last node point to head
-    let last = list;
-    while (last!.next) last = last!.next;
-    last!.next = list;
+    const last = getLastNode(list);
+
+    if (last) {
+      last.next = list; // Create cycle
+    }
+
     expect(hasCycle(list)).toBe(true);
   });
 
   it('should detect middle cycle', () => {
     const list = ListNode.fromArray([1, 2, 3, 4, 5]);
-    // Make node 3 point to node 2
-    const node2 = list!.next;
-    const node3 = node2!.next;
-    node3!.next = node2;
+    const node2 = getNthNode(list, 1);
+    const node3 = getNthNode(list, 2);
+
+    if (node2 && node3) {
+      node3.next = node2; // Create cycle
+    }
+
     expect(hasCycle(list)).toBe(true);
   });
 
   it('should handle large cycle', () => {
-    const nodes = [...Array.from({ length: 1000 }).keys()].map(val => new ListNode(val));
-    // Link all nodes linearly
+    const nodes = [...Array.from({ length: 1000 }).keys()].map(
+      (val) => new ListNode(val),
+    );
+
     for (let i = 0; i < nodes.length - 1; i++) {
       nodes[i].next = nodes[i + 1];
     }
-    // Create cycle from last to 500th node
-    nodes[nodes.length - 1].next = nodes[500];
+
+    if (nodes.length > 500) {
+      nodes[nodes.length - 1].next = nodes[500];
+    }
+
     expect(hasCycle(nodes[0])).toBe(true);
   });
 
