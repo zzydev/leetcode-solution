@@ -82,7 +82,9 @@ describe('insertionSortList', () => {
   });
 
   it('should sort list with large number of elements', () => {
-    const values = Array.from({ length: 100 }).fill(0).map((_, i) => 100 - i);
+    const values = Array.from({ length: 100 })
+      .fill(0)
+      .map((_, i) => 100 - i);
     const head = ListNode.fromArray(values);
     const result = insertionSortList(head);
     expect(ListNode.toArray(result)).toEqual(values.sort((a, b) => a - b));

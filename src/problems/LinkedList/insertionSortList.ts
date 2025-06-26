@@ -7,7 +7,7 @@ export function insertionSortList(head: ListNode | null): ListNode | null {
   const newHead = new ListNode();
   let p: ListNode | null = head;
   while (p !== null) {
-    const tmp: ListNode = p.next!;
+    const tmp: ListNode | null = p?.next;
     let q = newHead;
     while (q.next !== null && q.next.val <= p.val) {
       q = q.next;
@@ -18,4 +18,4 @@ export function insertionSortList(head: ListNode | null): ListNode | null {
     p = tmp;
   }
   return newHead.next;
-};
+}
