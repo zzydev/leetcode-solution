@@ -17,16 +17,14 @@ export class TripleInOne {
   }
 
   pop(stackNum: number): number {
-    if (this.isEmpty(stackNum))
-      return -1;
+    if (this.isEmpty(stackNum)) return -1;
     const ret = this.stack[this.top[stackNum] - 1];
     this.top[stackNum]--;
     return ret;
   }
 
   peek(stackNum: number): number {
-    if (this.isEmpty(stackNum))
-      return -1;
+    if (this.isEmpty(stackNum)) return -1;
     return this.stack[this.top[stackNum] - 1];
   }
 
