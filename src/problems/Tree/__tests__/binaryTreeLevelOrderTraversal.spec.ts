@@ -78,12 +78,21 @@ describe('levelOrder', () => {
     //     4   5   6
     //        /   / \
     //       7   8   9
-    const root = TreeNode.fromArray([1, 2, 3, 4, 5, null, 6, null, null, 7, null, 8, 9]);
-    expect(levelOrder(root)).toEqual([
-      [1],
-      [2, 3],
-      [4, 5, 6],
-      [7, 8, 9],
+    const root = TreeNode.fromArray([
+      1,
+      2,
+      3,
+      4,
+      5,
+      null,
+      6,
+      null,
+      null,
+      7,
+      null,
+      8,
+      9,
     ]);
+    expect(levelOrder(root)).toEqual([[1], [2, 3], [4, 5, 6], [7, 8, 9]]);
   });
 });
