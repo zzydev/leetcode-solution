@@ -53,7 +53,20 @@ describe('sumOfLeftLeaves', () => {
     //   4   5   6
     //  /       /
     // 7       8
-    const root = TreeNode.fromArray([1, 2, 3, 4, 5, null, 6, 7, null, null, null, 8]);
+    const root = TreeNode.fromArray([
+      1,
+      2,
+      3,
+      4,
+      5,
+      null,
+      6,
+      7,
+      null,
+      null,
+      null,
+      8,
+    ]);
     expect(sumOfLeftLeaves(root)).toBe(15); // 7 + 8
   });
 
@@ -80,7 +93,19 @@ describe('sumOfLeftLeaves', () => {
     //   4       5
     //  /         \
     // 6           7
-    const root = TreeNode.fromArray([1, 2, 3, 4, null, null, 5, 6, null, null, 7]);
+    const root = TreeNode.fromArray([
+      1,
+      2,
+      3,
+      4,
+      null,
+      null,
+      5,
+      6,
+      null,
+      null,
+      7,
+    ]);
     expect(sumOfLeftLeaves(root)).toBe(6);
   });
 });

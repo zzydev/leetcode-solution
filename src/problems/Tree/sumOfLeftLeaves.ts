@@ -12,4 +12,4 @@ export function sumOfLeftLeaves(root: TreeNode | null): number {
   }
   sum += sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
   return sum;
-};
+}
