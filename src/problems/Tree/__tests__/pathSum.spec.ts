@@ -19,12 +19,40 @@ describe('hasPathSum', () => {
     //   4   8
     //  /   / \
     // 11  13  4
-    const root = TreeNode.fromArray([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1]);
+    const root = TreeNode.fromArray([
+      5,
+      4,
+      8,
+      11,
+      null,
+      13,
+      4,
+      7,
+      2,
+      null,
+      null,
+      null,
+      1,
+    ]);
     expect(hasPathSum(root, 22)).toBe(true); // 5 -> 4 -> 11 -> 2
   });
 
   it('should return false if no valid path exists', () => {
-    const root = TreeNode.fromArray([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1]);
+    const root = TreeNode.fromArray([
+      5,
+      4,
+      8,
+      11,
+      null,
+      13,
+      4,
+      7,
+      2,
+      null,
+      null,
+      null,
+      1,
+    ]);
     expect(hasPathSum(root, 20)).toBe(false);
   });
 
@@ -77,7 +105,21 @@ describe('hasPathSum', () => {
     //   11  13  4
     //  /  \      \
     // 7    2      1
-    const root = TreeNode.fromArray([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1]);
+    const root = TreeNode.fromArray([
+      5,
+      4,
+      8,
+      11,
+      null,
+      13,
+      4,
+      7,
+      2,
+      null,
+      null,
+      null,
+      1,
+    ]);
     expect(hasPathSum(root, 27)).toBe(true); // 5 -> 8 -> 13
     expect(hasPathSum(root, 18)).toBe(true); // 5 -> 4 -> 11 -> 7
     expect(hasPathSum(root, 12)).toBe(false);
