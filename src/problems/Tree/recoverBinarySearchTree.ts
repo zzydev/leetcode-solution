@@ -30,4 +30,4 @@ export function recoverTree(root: TreeNode | null): void {
       inorderTraversal(root.right);
     }
   }
-};
+}
