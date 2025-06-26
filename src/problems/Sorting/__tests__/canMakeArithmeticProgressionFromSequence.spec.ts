@@ -53,7 +53,9 @@ describe('canMakeArithmeticProgression', () => {
 
   it('should handle arrays with large numbers', () => {
     expect(canMakeArithmeticProgression([1000, 2000, 3000])).toBe(true);
-    expect(canMakeArithmeticProgression([1000000, 2000000, 3000000])).toBe(true);
+    expect(canMakeArithmeticProgression([1000000, 2000000, 3000000])).toBe(
+      true,
+    );
     expect(canMakeArithmeticProgression([1000, 2000, 3001])).toBe(false);
   });
 
@@ -83,7 +85,9 @@ describe('canMakeArithmeticProgression', () => {
   });
 
   it('should handle arrays with large number of elements', () => {
-    const arr = Array.from({ length: 1000 }).fill(0).map((_, i) => i * 2);
+    const arr = Array.from({ length: 1000 })
+      .fill(0)
+      .map((_, i) => i * 2);
     expect(canMakeArithmeticProgression(arr)).toBe(true);
     arr[500] = 999;
     expect(canMakeArithmeticProgression(arr)).toBe(false);
