@@ -8,8 +8,7 @@ export function simplifyPath(path: string): string {
   for (const c of path) {
     if (c !== '/') {
       name += c;
-    }
-    else {
+    } else {
       if (name === '..') {
         while (res.length > 0 && res.charAt(res.length - 1) !== '/') {
           res = res.slice(0, -1);
@@ -17,8 +16,7 @@ export function simplifyPath(path: string): string {
         if (res.length > 0) {
           res = res.slice(0, -1);
         }
-      }
-      else if (name !== '.' && name !== '') {
+      } else if (name !== '.' && name !== '') {
         res += `/${name}`;
       }
       name = '';
