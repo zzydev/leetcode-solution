@@ -68,7 +68,19 @@ describe('postorderTraversal', () => {
     //   4       5
     //  /         \
     // 6           7
-    const root = TreeNode.fromArray([1, 2, 3, 4, null, null, 5, 6, null, null, 7]);
+    const root = TreeNode.fromArray([
+      1,
+      2,
+      3,
+      4,
+      null,
+      null,
+      5,
+      6,
+      null,
+      null,
+      7,
+    ]);
     expect(postorderTraversal(root)).toEqual([6, 4, 2, 7, 5, 3, 1]);
   });
 

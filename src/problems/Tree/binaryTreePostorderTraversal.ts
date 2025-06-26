@@ -1,7 +1,10 @@
 import type { TreeNode } from '@/utils/TreeNode';
 
 class Command {
-  constructor(public s: string, public node: TreeNode) {}
+  constructor(
+    public s: string,
+    public node: TreeNode,
+  ) {}
 }
 
 export function postorderTraversal(root: TreeNode | null): number[] {
@@ -12,11 +15,13 @@ export function postorderTraversal(root: TreeNode | null): number[] {
   }
   stack.push(new Command('go', root));
   while (stack.length > 0) {
-    const command = stack.pop()!;
+    const command = stack.pop();
+    if (command === undefined) {
+      break;
+    }
     if (command.s === 'print') {
       res.push(command.node.val);
-    }
-    else {
+    } else {
       stack.push(new Command('print', command.node));
       if (command.node.right) {
         stack.push(new Command('go', command.node.right));
@@ -27,4 +32,4 @@ export function postorderTraversal(root: TreeNode | null): number[] {
     }
   }
   return res;
-};
+}
