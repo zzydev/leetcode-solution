@@ -8,13 +8,13 @@ export function addStrings(num1: string, num2: string): string {
 
   while (idx1 < arr1.length || idx2 < arr2.length || carry !== 0) {
     if (idx1 < arr1.length) {
-      carry += (arr1[idx1++].charCodeAt(0) - '0'.charCodeAt(0));
+      carry += arr1[idx1++].charCodeAt(0) - '0'.charCodeAt(0);
     }
     if (idx2 < arr2.length) {
-      carry += (arr2[idx2++].charCodeAt(0) - '0'.charCodeAt(0));
+      carry += arr2[idx2++].charCodeAt(0) - '0'.charCodeAt(0);
     }
     res = (carry % 10) + res;
     carry = Math.floor(carry / 10);
   }
   return res || '0';
-};
+}
