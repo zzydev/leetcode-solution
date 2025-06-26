@@ -1,8 +1,7 @@
 import { ListNode } from '@/utils/ListNode';
 
 export function oddEvenList(head: ListNode | null): ListNode | null {
-  if (head == null)
-    return null;
+  if (head == null) return null;
   const oddHead = new ListNode();
   let oddTail = oddHead;
   const evenHead = new ListNode();
@@ -15,8 +14,7 @@ export function oddEvenList(head: ListNode | null): ListNode | null {
       p.next = null;
       oddTail.next = p;
       oddTail = p;
-    }
-    else {
+    } else {
       p.next = null;
       evenTail.next = p;
       evenTail = p;
@@ -26,4 +24,4 @@ export function oddEvenList(head: ListNode | null): ListNode | null {
   }
   oddTail.next = evenHead.next;
   return oddHead.next;
-};
+}

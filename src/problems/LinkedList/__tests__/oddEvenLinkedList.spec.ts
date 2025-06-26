@@ -51,10 +51,14 @@ describe('oddEvenList', () => {
     const values = ListNode.toArray(result);
 
     // 验证前50个是奇数位节点（0,2,4...98）
-    expect(values.slice(0, 50)).toEqual([...Array.from({ length: 50 }).keys()].map(i => i * 2));
+    expect(values.slice(0, 50)).toEqual(
+      [...Array.from({ length: 50 }).keys()].map((i) => i * 2),
+    );
 
     // 验证后50个是偶数位节点（1,3,5...99）
-    expect(values.slice(50)).toEqual([...Array.from({ length: 50 }).keys()].map(i => i * 2 + 1));
+    expect(values.slice(50)).toEqual(
+      [...Array.from({ length: 50 }).keys()].map((i) => i * 2 + 1),
+    );
   });
 
   it('should not create new nodes', () => {
