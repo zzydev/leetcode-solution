@@ -33,4 +33,4 @@ export function pathSum(root: TreeNode | null, targetSum: number): number[][] {
       path.pop();
     }
   }
-};
+}

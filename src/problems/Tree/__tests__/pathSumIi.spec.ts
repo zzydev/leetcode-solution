@@ -20,7 +20,21 @@ describe('pathSum', () => {
     //   11  13  4
     //  /  \    / \
     // 7    2  5   1
-    const root = TreeNode.fromArray([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]);
+    const root = TreeNode.fromArray([
+      5,
+      4,
+      8,
+      11,
+      null,
+      13,
+      4,
+      7,
+      2,
+      null,
+      null,
+      5,
+      1,
+    ]);
     expect(pathSum(root, 22)).toEqual([
       [5, 4, 11, 2],
       [5, 8, 4, 5],
@@ -92,9 +106,25 @@ describe('pathSum', () => {
     // 7    2  5   1
     //            /
     //           1
-    const root = TreeNode.fromArray([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1, null, null, null, 1]);
-    expect(pathSum(root, 26)).toEqual(
-      [[5, 8, 13]],
-    );
+    const root = TreeNode.fromArray([
+      5,
+      4,
+      8,
+      11,
+      null,
+      13,
+      4,
+      7,
+      2,
+      null,
+      null,
+      5,
+      1,
+      null,
+      null,
+      null,
+      1,
+    ]);
+    expect(pathSum(root, 26)).toEqual([[5, 8, 13]]);
   });
 });
