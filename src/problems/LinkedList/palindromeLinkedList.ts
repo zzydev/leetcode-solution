@@ -22,11 +22,10 @@ export function isPalindrome(head: ListNode | null): boolean {
     r--;
   }
   return true;
-};
+}
 
 export function isPalindrome1(head: ListNode | null): boolean {
-  if (head == null || head.next == null)
-    return true;
+  if (head == null || head.next == null) return true;
   const mid = middleNode(head);
   const right = reverseList(mid);
   let p = head;

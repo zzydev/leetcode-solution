@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { isPalindrome, isPalindrome1 } from '@/problems/LinkedList/palindromeLinkedList';
+import {
+  isPalindrome,
+  isPalindrome1,
+} from '@/problems/LinkedList/palindromeLinkedList';
 import { ListNode } from '@/utils/ListNode';
 
 const isPalindromeFunctions = [
