@@ -8,8 +8,7 @@ export function merge(intervals: number[][]): number[][] {
       if (intervals[i][1] >= curR) {
         curR = intervals[i][1];
       }
-    }
-    else {
+    } else {
       res.push([curL, curR]);
       curL = intervals[i][0];
       curR = intervals[i][1];
@@ -17,4 +16,4 @@ export function merge(intervals: number[][]): number[][] {
   }
   res.push([curL, curR]);
   return res;
-};
+}
