@@ -15,11 +15,11 @@ export function eatenApples(apples: number[], days: number[]): number {
       }
     }
     // 把已经过期的都扔掉
-    while (!minHeap.isEmpty() && minHeap.peek()![1] <= i) {
+    while (!minHeap.isEmpty() && (minHeap.peek()?.[1] as number) <= i) {
       minHeap.extract();
     }
     if (!minHeap.isEmpty()) {
-      let [num, bad] = minHeap.extract()!;
+      let [num, bad] = minHeap.extract() as [number, number];
       res++;
       if (--num > 0) {
         minHeap.insert([num, bad]);
@@ -28,4 +28,4 @@ export function eatenApples(apples: number[], days: number[]): number {
     i++;
   }
   return res;
-};
+}
