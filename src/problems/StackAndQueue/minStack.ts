@@ -10,8 +10,7 @@ export class MinStack {
   push(val: number): void {
     if (this.stackMin.length === 0) {
       this.stackMin.push(val);
-    }
-    else if (val <= this.getMin()) {
+    } else if (val <= this.getMin()) {
       this.stackMin.push(val);
     }
     this.stackDate.push(val);
