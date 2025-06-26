@@ -8,7 +8,7 @@ export function reverseStr(s: string, k: number): string {
     reversePartOfString(arr, i, arr.length - 1);
   }
   return arr.join('');
-};
+}
 
 function reversePartOfString(str: string[], start: number, end: number) {
   while (start < end) {
