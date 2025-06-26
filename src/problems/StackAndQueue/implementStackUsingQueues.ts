@@ -15,9 +15,15 @@ export class MyStack {
       throw new Error('Stack is empty');
     }
     while (this.queue.length > 1) {
-      this.cacheQueue.push(this.queue.shift()!);
+      const element = this.queue.shift();
+      if (element !== undefined) {
+        this.cacheQueue.push(element);
+      }
     }
-    const t = this.queue.pop()!;
+    const t = this.queue.pop();
+    if (t === undefined) {
+      throw new Error('Stack is empty');
+    }
     [this.queue, this.cacheQueue] = [this.cacheQueue, this.queue];
     return t;
   }
