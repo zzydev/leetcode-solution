@@ -3,8 +3,7 @@ import { Heap } from '../../utils/Heap';
 
 export function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
   const minHeap = new Heap<ListNode>((a, b) => a.val < b.val);
-  for (let i = 0; i < lists.length; i++) {
-    const list = lists[i];
+  for (const list of lists) {
     if (list !== null) {
       minHeap.insert(list);
     }
@@ -12,7 +11,10 @@ export function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
   const dummy = new ListNode();
   let tail = dummy;
   while (!minHeap.isEmpty()) {
-    const cur = minHeap.extract()!;
+    const cur = minHeap.extract();
+    if (cur === null) {
+      throw new Error('Heap is empty');
+    }
     tail.next = cur;
     tail = cur;
     if (cur.next !== null) {
@@ -20,4 +22,4 @@ export function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
     }
   }
   return dummy.next;
-};
+}
