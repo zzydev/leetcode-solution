@@ -9,20 +9,17 @@ export function calculate(s: string): number {
     const c = s[i];
     if (c === ' ') {
       i++;
-    }
-    else if (isDigit(c)) {
+    } else if (isDigit(c)) {
       let num = 0;
       while (i < len && isDigit(s[i])) {
         num = num * 10 + s[i].charCodeAt(0) - '0'.charCodeAt(0);
         i++;
       }
       nums.push(num);
-    }
-    else {
+    } else {
       if (ops.length === 0 || prior(c, ops[ops.length - 1])) {
         ops.push(c);
-      }
-      else {
+      } else {
         while (ops.length !== 0 && !prior(c, ops[ops.length - 1])) {
           fetchAndCal(nums, ops);
         }
@@ -34,14 +31,13 @@ export function calculate(s: string): number {
   while (ops.length !== 0) {
     fetchAndCal(nums, ops);
   }
-  return nums.pop()!;
-};
+  return nums.pop() as number;
+}
 
 function prior(a: string, b: string) {
   if ((a === '*' || a === '/') && (b === '+' || b === '-')) {
     return true;
-  }
-  else {
+  } else {
     return false;
   }
 }
@@ -50,8 +46,10 @@ function fetchAndCal(nums: number[], ops: string[]) {
   const num2 = nums.pop();
   const num1 = nums.pop();
   const op = ops.pop();
-  const ret = cal(op!, num1!, num2!);
-  nums.push(ret);
+  if (num1 !== undefined && num2 !== undefined && op !== undefined) {
+    const ret = cal(op, num1, num2);
+    nums.push(ret);
+  }
 }
 
 function cal(op: string, num1: number, num2: number): number {
