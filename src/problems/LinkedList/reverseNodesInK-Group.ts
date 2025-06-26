@@ -1,6 +1,9 @@
 import { ListNode } from '@/utils/ListNode';
 
-export function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
+export function reverseKGroup(
+  head: ListNode | null,
+  k: number,
+): ListNode | null {
   const dummyHead = new ListNode();
   let tail = dummyHead;
 
@@ -18,8 +21,7 @@ export function reverseKGroup(head: ListNode | null, k: number): ListNode | null
     if (q == null) {
       tail.next = p;
       return dummyHead.next;
-    }
-    else {
+    } else {
       const tmp = q.next;
       const group = reverse(p, q);
       tail.next = group[0];
@@ -28,14 +30,14 @@ export function reverseKGroup(head: ListNode | null, k: number): ListNode | null
     }
   }
   return dummyHead.next;
-};
+}
 
 function reverse(head: ListNode, tail: ListNode) {
   let newHead: ListNode | null = null;
   let p: ListNode | null = head;
   while (p !== tail) {
-    const tmp: ListNode | null = p!.next;
-    p!.next = newHead;
+    const tmp = p.next as ListNode;
+    p.next = newHead;
     newHead = p;
     p = tmp;
   }
