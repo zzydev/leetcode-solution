@@ -13,8 +13,7 @@ export function removeElements(
   while (prev.next != null) {
     if (prev.next.val === val) {
       prev.next = prev.next.next;
-    }
-    else {
+    } else {
       prev = prev.next;
     }
   }
