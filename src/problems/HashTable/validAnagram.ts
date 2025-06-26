@@ -5,10 +5,10 @@ export function isAnagram(s: string, t: string): boolean {
   const map_s = new Map();
   const map_t = new Map();
   for (const c of s) {
-    map_s.set(c, (map_s.get(c) as number || 0) + 1);
+    map_s.set(c, ((map_s.get(c) as number) || 0) + 1);
   }
   for (const c of t) {
-    map_t.set(c, (map_t.get(c) as number || 0) + 1);
+    map_t.set(c, ((map_t.get(c) as number) || 0) + 1);
   }
 
   for (const [key, value] of map_s.entries()) {
@@ -17,4 +17,4 @@ export function isAnagram(s: string, t: string): boolean {
     }
   }
   return true;
-};
+}
